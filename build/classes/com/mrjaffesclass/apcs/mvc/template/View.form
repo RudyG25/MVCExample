@@ -103,7 +103,7 @@
         <Property name="name" type="java.lang.String" value="01" noResource="true"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onClick"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
@@ -111,7 +111,7 @@
         <Property name="name" type="java.lang.String" value="03" noResource="true"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onClick"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton3">
@@ -119,7 +119,7 @@
         <Property name="name" type="java.lang.String" value="10" noResource="true"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onClick"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton4">
@@ -127,7 +127,7 @@
         <Property name="name" type="java.lang.String" value="11" noResource="true"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onClick"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton5">
@@ -135,7 +135,7 @@
         <Property name="name" type="java.lang.String" value="12" noResource="true"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onClick"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton6">
@@ -143,7 +143,7 @@
         <Property name="name" type="java.lang.String" value="00" noResource="true"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onClick"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton7">
@@ -151,7 +151,7 @@
         <Property name="name" type="java.lang.String" value="21" noResource="true"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton7ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onClick"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton8">
@@ -159,7 +159,7 @@
         <Property name="name" type="java.lang.String" value="02" noResource="true"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onClick"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton9">
@@ -167,7 +167,7 @@
         <Property name="name" type="java.lang.String" value="22" noResource="true"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton9ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onClick"/>
       </Events>
     </Component>
   </SubComponents>
