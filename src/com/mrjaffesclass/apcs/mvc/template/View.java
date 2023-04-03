@@ -64,7 +64,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         for (int i = 0; i < 3; i++) {
             if (!board[i][0].equals("") && board[i][0].equals(board[i][1]) && board[i][0].equals(board[i][2]))
                 return board[i][0];
-        if (!board[i][0].equals("") && board[0][i].equals(board[1][i]) && board[0][i].equals(board[2][i]))
+        if (!board[0][i].equals("") && board[0][i].equals(board[1][i]) && board[0][i].equals(board[2][i]))
             return board[0][i];
         }
         if (board[0][0].equals(board[1][1]) && board[0][0].equals(board[2][2]))
