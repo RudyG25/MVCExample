@@ -21,7 +21,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
     mvcMessaging = messages;   // Save the calling controller instance
     initComponents();           // Create and init the GUI components
   }
-  
+  private int tieCount = 0;
   /**
    * Initialize the model here and subscribe
    * to any required messages
@@ -30,6 +30,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
     // Subscribe to messages here
     this.mvcMessaging.subscribe("boardChange", this);
     this.mvcMessaging.subscribe("boardChange", this);
+    this.mvcMessaging.subscribe("labelChange", this);
   }
   
   @Override
@@ -53,29 +54,14 @@ public class View extends javax.swing.JFrame implements MessageHandler {
       jButton8.setText(board[2][0]);
       jButton7.setText(board[2][1]);
       jButton9.setText(board[2][2]);
-      if (!isWinner(board).equals("")) {
-          jLabel12.setText(isWinner(board) + " is the winner!!!");
-      }
       
     }
+    if (messageName.equals("labelChange")) {
+        String label = (String)messagePayload;
+        jLabel12.setText(label);
+    }
   }
-  public String isWinner(String[][] board) {
-        //Check rows and columns
-        for (int i = 0; i < 3; i++) {
-            if (!board[i][0].equals("") && board[i][0].equals(board[i][1]) && board[i][0].equals(board[i][2]))
-                return board[i][0];
-        if (!board[0][i].equals("") && board[0][i].equals(board[1][i]) && board[0][i].equals(board[2][i]))
-            return board[0][i];
-        }
-        if (board[0][0].equals(board[1][1]) && board[0][0].equals(board[2][2]))
-            return board[0][0];
-        if (board[0][2].equals(board[1][1]) && board[0][2].equals(board[2][0]))
-            return board[0][2];
-
-  // If we haven't found it, then return a blank string
-    return "";
-
-  }
+  
 
 
   /**
@@ -87,6 +73,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton10 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -97,14 +84,19 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+
+        jButton10.setText("jButton10");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(900, 350));
 
         jLabel12.setText(".");
 
         jButton1.setMaximumSize(new java.awt.Dimension(72, 72));
         jButton1.setMinimumSize(new java.awt.Dimension(72, 72));
         jButton1.setName("01"); // NOI18N
+        jButton1.setPreferredSize(new java.awt.Dimension(72, 72));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 onClick(evt);
@@ -114,6 +106,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         jButton2.setMaximumSize(new java.awt.Dimension(72, 72));
         jButton2.setMinimumSize(new java.awt.Dimension(72, 72));
         jButton2.setName("02"); // NOI18N
+        jButton2.setPreferredSize(new java.awt.Dimension(72, 72));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 onClick(evt);
@@ -123,6 +116,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         jButton3.setMaximumSize(new java.awt.Dimension(72, 72));
         jButton3.setMinimumSize(new java.awt.Dimension(72, 72));
         jButton3.setName("10"); // NOI18N
+        jButton3.setPreferredSize(new java.awt.Dimension(72, 72));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 onClick(evt);
@@ -132,6 +126,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         jButton4.setMaximumSize(new java.awt.Dimension(72, 72));
         jButton4.setMinimumSize(new java.awt.Dimension(72, 72));
         jButton4.setName("11"); // NOI18N
+        jButton4.setPreferredSize(new java.awt.Dimension(72, 72));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 onClick(evt);
@@ -141,6 +136,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         jButton5.setMaximumSize(new java.awt.Dimension(72, 72));
         jButton5.setMinimumSize(new java.awt.Dimension(72, 72));
         jButton5.setName("12"); // NOI18N
+        jButton5.setPreferredSize(new java.awt.Dimension(72, 72));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 onClick(evt);
@@ -150,6 +146,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         jButton6.setMaximumSize(new java.awt.Dimension(72, 72));
         jButton6.setMinimumSize(new java.awt.Dimension(72, 72));
         jButton6.setName("00"); // NOI18N
+        jButton6.setPreferredSize(new java.awt.Dimension(72, 72));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 onClick(evt);
@@ -159,6 +156,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         jButton7.setMaximumSize(new java.awt.Dimension(72, 72));
         jButton7.setMinimumSize(new java.awt.Dimension(72, 72));
         jButton7.setName("21"); // NOI18N
+        jButton7.setPreferredSize(new java.awt.Dimension(72, 72));
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 onClick(evt);
@@ -168,6 +166,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         jButton8.setMaximumSize(new java.awt.Dimension(72, 72));
         jButton8.setMinimumSize(new java.awt.Dimension(72, 72));
         jButton8.setName("20"); // NOI18N
+        jButton8.setPreferredSize(new java.awt.Dimension(72, 72));
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 onClick(evt);
@@ -177,9 +176,17 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         jButton9.setMaximumSize(new java.awt.Dimension(72, 72));
         jButton9.setMinimumSize(new java.awt.Dimension(72, 72));
         jButton9.setName("22"); // NOI18N
+        jButton9.setPreferredSize(new java.awt.Dimension(72, 72));
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 onClick(evt);
+            }
+        });
+
+        jButton11.setText("New Game");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                onClick2(evt);
             }
         });
 
@@ -188,42 +195,48 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(60, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(92, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton11)
+                .addGap(34, 34, 34))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -231,13 +244,14 @@ public class View extends javax.swing.JFrame implements MessageHandler {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
@@ -248,7 +262,13 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         JButton button = (JButton)evt.getSource();
         this.mvcMessaging.notify("playerMove", button.getName());
         
+        
     }//GEN-LAST:event_onClick
+
+    private void onClick2(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onClick2
+        // TODO add your handling code here:
+        this.mvcMessaging.notify("newGame", null);
+    }//GEN-LAST:event_onClick2
 
   /**
    * @param args the command line arguments
@@ -256,6 +276,8 @@ public class View extends javax.swing.JFrame implements MessageHandler {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
